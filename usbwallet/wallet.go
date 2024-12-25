@@ -418,7 +418,7 @@ func (w *wallet) SignTx(account accounts.Account, tx *coretypes.Transaction, cha
 		w.hub.commsLock.Unlock()
 	}()
 	// Sign the transaction and verify the sender to avoid hardware fault surprises
-	sender, _, signature, err := w.driver.SignTx(path, tx, chainID)
+	sender, signature, _, err := w.driver.SignTx(path, tx, chainID)
 	if err != nil {
 		return nil, err
 	}
