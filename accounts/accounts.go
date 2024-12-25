@@ -88,7 +88,7 @@ type Wallet interface {
 	// about which fields or actions are needed. The user may retry by providing
 	// the needed details via SignTxWithPassphrase, or by other means (e.g. unlock
 	// the account in a keystore).
-	SignTx(path gethaccounts.DerivationPath, tx *coretypes.Transaction, chainID *big.Int) (common.Address, []byte, error)
+	SignTx(account Account, tx *coretypes.Transaction, chainID *big.Int) ([]byte, error)
 
 	// Sign a TypedData object using EIP-712 encoding
 	SignTypedData(account Account, typedData apitypes.TypedData) ([]byte, error)

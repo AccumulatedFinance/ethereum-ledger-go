@@ -64,7 +64,7 @@ type driver interface {
 
 	// SignTx sends the transaction to the USB device and waits for the user to confirm
 	// or deny the transaction.
-	SignTx(path gethaccounts.DerivationPath, tx *coretypes.Transaction, chainID *big.Int) (common.Address, []byte, error)
+	SignTx(path gethaccounts.DerivationPath, tx *coretypes.Transaction, chainID *big.Int) (common.Address, []byte, []byte, error)
 
 	SignTypedMessage(path gethaccounts.DerivationPath, messageHash []byte, domainHash []byte) ([]byte, error)
 }
@@ -418,7 +418,7 @@ func (w *wallet) SignTx(account accounts.Account, tx *coretypes.Transaction, cha
 		w.hub.commsLock.Unlock()
 	}()
 	// Sign the transaction and verify the sender to avoid hardware fault surprises
-	sender, signed, err := w.driver.SignTx(path, tx, chainID)
+	sender, _, signature, err := w.driver.SignTx(path, tx, chainID)
 	if err != nil {
 		return nil, err
 	}
@@ -427,7 +427,7 @@ func (w *wallet) SignTx(account accounts.Account, tx *coretypes.Transaction, cha
 		return nil, fmt.Errorf("signer mismatch: expected %s, got %s", account.Address, sender)
 	}
 
-	return signed, nil
+	return signature, nil
 }
 
 func (w *wallet) verifyTypedDataSignature(account accounts.Account, rawData []byte, signature []byte) error {
