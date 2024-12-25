@@ -7,8 +7,8 @@ This package is a general-purpose Ethereum Ledger library adapted from [go-ether
 ### Initialize Wallet
 ```
 import (
- 	ethLedger "github.com/evmos/ethereum-ledger-go"
-	"github.com/evmos/ethereum-ledger-go/accounts"
+ 	ethLedger "github.com/AccumulatedFinance/ethereum-ledger-go"
+	"github.com/AccumulatedFinance/ethereum-ledger-go/accounts"
 )
 
 ledger, err := ethLedger.New()
@@ -22,7 +22,7 @@ account, err := wallet.Derive(path, true)       // Boolean indicates whether the
 
 ### Sign Transactions
 ```
-import ethLedger "github.com/evmos/ethereum-ledger-go"
+import ethLedger "github.com/AccumulatedFinance/ethereum-ledger-go"
 import "math/big"
 
 tx := ethLedger.CreateTx(

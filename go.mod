@@ -1,4 +1,4 @@
-module github.com/evmos/ethereum-ledger-go
+module github.com/AccumulatedFinance/ethereum-ledger-go
 
 go 1.19
 

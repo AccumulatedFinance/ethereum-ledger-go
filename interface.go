@@ -1,8 +1,8 @@
 package ledger
 
 import (
-	"github.com/evmos/ethereum-ledger-go/accounts"
-	"github.com/evmos/ethereum-ledger-go/usbwallet"
+	"github.com/AccumulatedFinance/ethereum-ledger-go/accounts"
+	"github.com/AccumulatedFinance/ethereum-ledger-go/usbwallet"
 )
 
 type EthereumLedger struct {

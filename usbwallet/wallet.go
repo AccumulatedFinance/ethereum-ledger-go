@@ -27,12 +27,12 @@ import (
 	"sync"
 	"time"
 
+	"github.com/AccumulatedFinance/ethereum-ledger-go/accounts"
 	gethaccounts "github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/common"
 	coretypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
-	"github.com/evmos/ethereum-ledger-go/accounts"
 	usb "github.com/zondax/hid"
 )
 

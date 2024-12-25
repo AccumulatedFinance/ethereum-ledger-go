@@ -14,8 +14,8 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/signer/core/apitypes"
 
-	ledger "github.com/evmos/ethereum-ledger-go"
-	"github.com/evmos/ethereum-ledger-go/accounts"
+	ledger "github.com/AccumulatedFinance/ethereum-ledger-go"
+	"github.com/AccumulatedFinance/ethereum-ledger-go/accounts"
 	"github.com/stretchr/testify/require"
 )
 
