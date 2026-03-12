@@ -226,3 +226,16 @@ func (hub *Hub) refreshWallets() {
 	hub.wallets = wallets
 	hub.stateLock.Unlock()
 }
+
+// Close shuts down the hub and all tracked wallets.
+func (hub *Hub) Close() error {
+	hub.stateLock.Lock()
+	defer hub.stateLock.Unlock()
+
+	for _, w := range hub.wallets {
+		_ = w.Close()
+	}
+
+	hub.wallets = nil
+	return nil
+}

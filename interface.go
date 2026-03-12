@@ -13,6 +13,13 @@ func (el EthereumLedger) Wallets() []accounts.Wallet {
 	return el.hub.Wallets()
 }
 
+func (el *EthereumLedger) Close() error {
+	if el.hub != nil {
+		return el.hub.Close()
+	}
+	return nil
+}
+
 func New() (*EthereumLedger, error) {
 	l := &EthereumLedger{}
 	hub, err := usbwallet.NewLedgerHub()
